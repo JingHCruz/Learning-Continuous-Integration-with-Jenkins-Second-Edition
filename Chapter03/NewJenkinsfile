@@ -1,0 +1,19 @@
+node('built-in') {
+
+    stage('Preparation') {
+        // some block
+        git 'https://github.com/JingHCruz/Learning-Continuous-Integration-with-Jenkins-Second-Edition.git'
+
+    }
+
+    stage('Build') {
+        // some block
+        withMaven(globalMavenSettingsConfig: '', jdk: '', maven: 'M3', mavenSettingsConfig: '', traceability: true) {
+        // some block
+        sh 'mvn -Dmaven.test.failure.ignore clean package'
+    }
+
+    }
+
+}
+
